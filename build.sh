@@ -19,9 +19,9 @@ git add . && \
 
 CWD=${PWD}
 for d in $(ls -1 | grep "^[0-9]*\.[0-9]*$"); do
-	echo "Building image for kafka v$d with image tag $d-build+$NEW_VER and git tag $NEW_TAG"
+	echo "Building image for kafka v$d with image tag $d-b$NEW_VER and git tag $NEW_TAG"
 	cd ./$d && \
-	docker build --no-cache -t md2k/kafka-tools:$d-build+$NEW_VER -f ./Dockerfile && \
-	docker tag md2k/kafka-tools:$d-build+$NEW_VER -t md2k/kafka-tools:$d && \
+	docker build --no-cache -t md2k/kafka-tools:$d-b$NEW_VER -f ./Dockerfile && \
+	docker tag md2k/kafka-tools:$d-b$NEW_VER -t md2k/kafka-tools:$d && \
 	cd $CWD
 done
