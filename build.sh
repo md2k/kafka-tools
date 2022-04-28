@@ -25,6 +25,6 @@ for d in $(ls -1 | grep "^[0-9]*\.[0-9]*$"); do
 	docker build --no-cache -t md2k/kafka-tools:$d-b$NEW_VER -f ./Dockerfile .  && \
 	docker tag md2k/kafka-tools:$d-b$NEW_VER md2k/kafka-tools:$d && \
 	docker push md2k/kafka-tools:$d-b$NEW_VER && \
-	docker push md2k/kafka-tools:$d-b$NEW_VER && \
+	docker push md2k/kafka-tools:$d && \
 	cd $CWD
 done
